@@ -115,10 +115,8 @@ H2O.Carousel = function(options) {
 		self.carouselAppend = function(jsonobject) {
 			console.debug(carouselLength);
 			if (carouselLength >= (options.rowAmt * options.columnAmt * (pageNum + 1))) {
-				console.debug('pageNum = ' + pageNum);
 				pageNum = pageNum + 1;
 				addpage();
-				console.debug('pageNum is now = ' + pageNum);
 			}
 			
 			/* box */
@@ -136,7 +134,7 @@ H2O.Carousel = function(options) {
 			// this needs to check if a HREF exists in data
 			// we may also have an onclick value in the data
 
-            // /* a */
+            /* a */
             // a = document.createElement('a');
 			// TODO: Make this grab the link and load video and/or do some cool effect
 			//a.setAttribute('onclick', "Frescolita.StateManager.states['HOME'].startWidget('" + href + "')");
@@ -175,10 +173,6 @@ H2O.Carousel = function(options) {
             //box.appendChild(a);
 			box.appendChild(icon);
 			pages[pageNum].appendChild(box);
-			console.debug('page0 = ' + pages[0]);
-			console.debug('page1 = ' + pages[1]);
-			console.debug('page2 = ' + pages[2]);
-			console.debug('page3 = ' + pages[3]);
 			carouselLength = carouselLength + 1;
 		}
 		

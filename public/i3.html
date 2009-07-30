@@ -116,8 +116,16 @@
 			position: absolute;
 			top: 100%;
 			left: 100%;
-			margin-top: -190px;
-			margin-left: -510px;
+			width: 255px;
+			height: 95px;
+			margin-top: -95px;
+			margin-left: -255px;
+		}
+		
+		#stocks {
+			width: 100%;
+			height: 100%;
+			text-align: center;
 		}
 		
 		/* Login */
@@ -259,7 +267,7 @@
 		// CALLING
 		// BUSY
 		var ramuneState = "WAITING";
-		var TIMER_DELAY = 15000;
+		var TIMER_DELAY = 7000;
 		var rssNum = 10;
 		
 		function resize(w, h) {
@@ -364,22 +372,36 @@
 				},
 			};
 			
+			mockup = {
+				0: {
+					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/mockup1.png'
+				},
+				1: {
+					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/mockup2.png'
+				},
+				2: {
+					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/mockup3.png'
+				}
+			}
+			
 			rvideo = H2O.Image({ ID: 'vid', src: 'http://marco.calit2.uci.edu/assets/i3/images/video.png', padding: 20 });
 			next = H2O.Button({ ID: 'next', type: 'next', click: 'buddylist.nextPage(1)'});
 			back = H2O.Button({ ID: 'back', type: 'back', click: 'buddylist.prevPage(1)'});
 						
-			$('#bbutton').append(back);
-
-			/* BuddyList */
-			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 4, rowAmt: 2, autoScroll: false });
-			$('#carousel').append(buddylist);
-
-			$('#nbutton').append(next);
+			
 			$('#ramune_video').append(rvideo);
 			calit2slideshow = H2O.Carousel({ ID: 'calit2slides', data: calit2pics, columnAmt: 1, rowAmt: 1, autoScroll: true , scrollDelay: 5000, animSpeed: 400 });
 			$('#homescreen').append(calit2slideshow);
-			slideshow = H2O.Carousel({ ID: 'slideshow', data: users, columnAmt: 1, rowAmt: 1, autoScroll: true });
+			slideshow = H2O.Carousel({ ID: 'mockup', data: mockup, columnAmt: 1, rowAmt: 1, autoScroll: true, scrollDelay: 5000, animSpeed: 400 });
 			$('#screen-left').append(slideshow);
+
+			/* Back Button */
+			$('#bbutton').append(back);
+			/* BuddyList */
+			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 4, rowAmt: 2, autoScroll: false });
+			$('#carousel').append(buddylist);
+			/* Next Button */
+			$('#nbutton').append(next);
 
 			$('#home').click(function() {
 				$('#buddylist').animate({
@@ -431,7 +453,22 @@
 				}, 500);
 				
 			});
-						
+		
+			$('#close_call').click(function(){
+				$('#homescreen').animate({
+					opacity: 0,
+					top: 3000
+				}, 500);
+				$('#videoscreen').animate({
+					opacity: 0,
+					top: 3000
+				}, 500);
+				$('#buddylist').show('fast');
+				$('#buddylist').animate({
+					opacity: .85,
+					top: 20
+				}, 500);
+			})
 		});
 		
 		// Testing
@@ -474,7 +511,6 @@
 		<img id="topbanner" src="http://marco.calit2.uci.edu/assets/i3/images/screensaverbg.png">
 		<div id="homescreen" class="demoscreen"></div>
 		<div id="videoscreen" class="demoscreen">
-			<!-- <a href="#" onclick="buddylist.addToCarousel(appendtest[0])">CLICK ME</a> -->
 			<div id="ramune">
 				<div id="ramune_video"></div>
 				<div id="ramune_controls">
@@ -488,6 +524,7 @@
 			<div id="bbutton"></div>
 			<div id="carousel"></div>
 			<div id="nbutton"></div>
+			<a href="#" onclick="buddylist.addToCarousel(appendtest[0])">Add Buddy</a>
 		</div>
 		<div id="buttons">
 			<div class="button" id="buddys"><img src="http://marco.calit2.uci.edu/assets/i3/images/pictures.png" /></div>
@@ -497,7 +534,9 @@
 	</div>
 	<div id="screen" class="backdrop">
 		<div id="screen-left">
-		
+			<!-- <div id="stocks">
+			<iframe allowtransparency="true" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="http://api.finance.yahoo.com/instrument/1.0/%5EIXIC/badge;chart=1y;news=3;quote/HTML?AppID=RaireXaKZXDjtu97eUWwepFHXv1wMg57IW6VVrn2&amp;sig=0ydl8m.ouX0J7wHPjvYpUbhLHF0-&amp;t=1248984986060" width="300px" height="679px"><a href="http://finance.yahoo.com">Yahoo! Finance</a><br/><a href="http://finance.yahoo.com/q?s=^IXIC/">Quote for ^IXIC/</a></iframe>
+			</div> -->
 		</div>
 		<img id="logo" src="http://marco.calit2.uci.edu/assets/i3/images/calit2logo.png" />
 	</div>
