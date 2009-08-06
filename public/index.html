@@ -223,7 +223,6 @@
 		
 	</style>
 	<script type="text/javascript" src="http://marco.calit2.uci.edu/lib/jquery/jquery-1.3.2.js"></script>
-	<script src="js/screensaver.js" type="text/javascript" charset="utf-8"></script>
 	<script src="http://marco.calit2.uci.edu/H2O/src/js/H2O.js" type="text/javascript" charset="utf-8"></script>
 	<script src="http://marco.calit2.uci.edu/H2O/src/js/H2O.Image.js" type="text/javascript" charset="utf-8"></script>
 	<script src="http://marco.calit2.uci.edu/H2O/src/js/H2O.Button.js" type="text/javascript" charset="utf-8"></script>
@@ -423,11 +422,14 @@
 			}
 		};
 		
-
 		// Screen Saver
-	    $('#screen').hide();		
+	    $('#screen').hide();
+	
+		function sCallBack(){
+			slideshow.resize();
+		}
 	</script>
-
+	<script src="js/screensaver.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -472,7 +474,6 @@
 		</div>
 		<!-- Navigation Buttons -->
 		<div id="buttons">
-			<!-- <div class="button" id="buddys"><img src="http://marco.calit2.uci.edu/assets/i3/images/pictures.png" /></div> -->
 			<div class="button" id="video"><img src="http://marco.calit2.uci.edu/assets/i3/images/video.png" /></div>
 			<div class="button" id="home"><img src="http://marco.calit2.uci.edu/assets/i3/images/home.png" /></div>
 		</div>

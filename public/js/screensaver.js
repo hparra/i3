@@ -20,4 +20,5 @@ function restartTimer() {
 
 function initScreenSaver() {
     $('#screen').fadeIn('fast');
+	sCallBack();
 }
