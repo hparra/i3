@@ -310,77 +310,77 @@
 			
 			users = {
 				0: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
 				},
 				1: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/2.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/2.png'
 				},
 				2: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/3.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/3.png'
 				},
 				3: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/4.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/4.png'
 				},
 				4: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/5.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/5.png'
 				},
 				5: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/6.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/6.png'
 				},
 				6: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
 				},
 				7: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/2.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/2.png'
 				},
 				8: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/3.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/3.png'
 				},
 				9: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/4.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/4.png'
 				},
 				10: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/5.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/5.png'
 				},
 				11: {
-					thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/6.png'
+					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/6.png'
 				}
 				
 			};
 			
 			calit2pics = {
 				0: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0001.jpg'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0001.jpg'
 				},
 				1: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0002.jpg'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0002.jpg'
 				},
 				2: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0003.jpg'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0003.jpg'
 				},
 				3: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0004.jpg'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0004.jpg'
 				},
 				4: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0005.jpg'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0005.jpg'
 				},
 				5: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0006.jpg'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0006.jpg'
 				},
 				6: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0008.jpg'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0008.jpg'
 				},
 			};
 			
 			mockup = {
 				0: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/mockup1.png'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/mockup1.png'
 				},
 				1: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/mockup2.png'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/mockup2.png'
 				},
 				2: {
-					thumb: 'http://marco.calit2.uci.edu/assets/i3/images/mockup3.png'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/mockup3.png'
 				}
 			}
 			
@@ -395,6 +395,9 @@
 			slideshow = H2O.Carousel({ ID: 'mockup', data: mockup, columnAmt: 1, rowAmt: 1, autoScroll: true, scrollDelay: 5000, animSpeed: 400 });
 			$('#screen-left').append(slideshow);
 
+			slideshow.addToCarousel(document.getElementById('stockchart'));
+			slideshow.addToCarousel(document.getElementById('stockwidget'));
+			
 			/* Back Button */
 			$('#bbutton').append(back);
 			/* BuddyList */
@@ -475,7 +478,7 @@
 		
 		appendtest = {
 			0: {
-				thumb: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
+				imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
 			}
 		};
 		
@@ -538,6 +541,16 @@
 			<iframe allowtransparency="true" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="http://api.finance.yahoo.com/instrument/1.0/%5EIXIC/badge;chart=1y;news=3;quote/HTML?AppID=RaireXaKZXDjtu97eUWwepFHXv1wMg57IW6VVrn2&amp;sig=0ydl8m.ouX0J7wHPjvYpUbhLHF0-&amp;t=1248984986060" width="300px" height="679px"><a href="http://finance.yahoo.com">Yahoo! Finance</a><br/><a href="http://finance.yahoo.com/q?s=^IXIC/">Quote for ^IXIC/</a></iframe>
 			</div> -->
 		</div>
+		<!-- ScreenSaver Widgets -->
+		<div id="stockchart">
+			<script src="http://charts.wikinvest.com/wikinvest/wikichart/javascript/scripts.php" type="text/javascript"></script><div id="wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B"><div style="width: 100%; text-align: center; vertical-align: center; margin-top: 100px;"><a href="http://get.adobe.com/flashplayer/"><img src="http://cdn.wikinvest.com/wikinvest/images/adobe_flash_logo.gif" alt="Flash" style="border-width: 0px;"/><br/>Flash Player 9 or higher is required to view the chart<br/><strong>Click here to download Flash Player now</strong></a></div></div><script type="text/javascript">if (typeof(embedWikichart) != "undefined") {embedWikichart("http://charts.wikinvest.com/WikiChartMini.swf","wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B","100%","400",{"showAnnotations":"true","endDate":"05-08-2009","ticker":"GOOG","liveQuote":"true","startDate":"05-02-2009"});}</script><div style="font-size:9px;text-align:right;width:100%;font-family:Verdana"><a href="http://www.wikinvest.com/chart/GOOG" style="text-decoration:underline; color:#0000ee;">View the full NASDAQ:GOOG chart</a> at <a href="http://www.wikinvest.com/">Wikinvest</a></div>
+		</div>
+		<div id="stockwidget">
+			<!-- Start of Yahoo! Finance code -->
+			<iframe allowtransparency="true" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" height="100%" width="100%" src="http://api.finance.yahoo.com/instrument/1.0/%5EIXIC,GOOG,MSFT/badge;chart=3m,,comparison;quote/HTML?AppID=5FRAd3aKZXCezqWxlgKCpZloQ1B10TL6aU6ZSpIJ&amp;sig=gWlDE1iUzY.Gk2to1rRR2V82j6k-&amp;t=1249534394234" width="300px" height="undefined"><a href="http://finance.yahoo.com">Yahoo! Finance</a><br/><a href="http://finance.yahoo.com/q?s=^IXIC">Quote for ^IXIC</a></iframe>
+			<!-- End of Yahoo! Finance code -->
+		</div>
+		<!-- Logo -->
 		<img id="logo" src="http://marco.calit2.uci.edu/assets/i3/images/calit2logo.png" />
 	</div>
 	<!-- Ramune Modals -->
