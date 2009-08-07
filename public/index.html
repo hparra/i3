@@ -126,21 +126,10 @@
 		#screen-bottom {
 			position: absolute;
 			top: 85%;
-			left: 0px;
 			width: 100%;
 			height: 15%;
 			margin: 0;
 			padding: 0;
-		}
-		
-		#logo {
-			position: absolute;
-			top: 100%;
-			left: 100%;
-			width: 255px;
-			height: 95px;
-			margin-top: -95px;
-			margin-left: -255px;
 		}
 		
 		#stocks {
@@ -372,10 +361,8 @@
 			$('#nbutton').append(next);
 			$('#buddylist').hide();
 			
-			
-			
 			/* Screensaver */
-			slideshow = H2O.Carousel({ ID: 'mockup', data: mockup, columnAmt: 1, rowAmt: 1, animSpeed: 400 });
+			slideshow = H2O.Carousel({ ID: 'mockup', data: mockup, columnAmt: 1, rowAmt: 1, animSpeed: 400, autoScroll: false });
 			$('#screen-left').append(slideshow);
 			/* Back Button */
 			sback = H2O.Button({ ID: 'sback', type: 'back', click: 'slideshow.prevPage(1)'});
@@ -386,6 +373,8 @@
 			
 			/* Widgets */
 			slideshow.addToCarousel(document.getElementById('stockchart'));
+			slideshow.addToCarousel(document.getElementById('rssreader'));
+			//slideshow.addToCarousel(document.getElementById('supermario'));
 			
 			/* Home Button */
 			shome = H2O.Image({ ID: 'shome', src: 'http://marco.calit2.uci.edu/assets/i3/images/shome.png', padding: 0 });
@@ -425,6 +414,8 @@
 				$('#ramune').hide();
 				$('#buddylist').fadeIn();
 				buddylist.resize();
+				back.resize();
+				next.resize();
 			});
 			
 			$('#shome').click(function(){
@@ -445,6 +436,7 @@
 		
 		function sCallBack(){
 			slideshow.resize();
+			shome.resize();
 		}
 	</script>
 </head>
@@ -513,13 +505,21 @@
 					</a>
 				</div>
 			</div>
-			<script type="text/javascript">if (typeof(embedWikichart) != "undefined") {embedWikichart("http://charts.wikinvest.com/WikiChartMini.swf","wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B","100%","400",{"showAnnotations":"true","endDate":"05-08-2009","ticker":"GOOG","liveQuote":"true","startDate":"05-02-2009"});}</script>
+			<script type="text/javascript">
+				if (typeof(embedWikichart) != "undefined") {embedWikichart("http://charts.wikinvest.com/WikiChartMini.swf","wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B","100%","400",{"showAnnotations":"true","endDate":"05-08-2009","ticker":"GOOG","liveQuote":"true","startDate":"05-02-2009"});}
+			</script>
 			<div style="font-size:9px;text-align:right;width:100%;font-family:Verdana">
 				<a href="http://www.wikinvest.com/chart/GOOG" style="text-decoration:underline; color:#0000ee;">View the full NASDAQ:GOOG chart</a> at <a href="http://www.wikinvest.com/">Wikinvest</a>
 			</div>
 		</div>
-		<!-- Logo -->
-		<!-- <img id="logo" src="http://marco.calit2.uci.edu/assets/i3/images/calit2logo.png" /> -->
+		<div id="rssreader">
+			<script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
+			<script>if (WIDGETBOX) WIDGETBOX.renderWidget('f049a8cb-be45-48f5-b030-9c8689d7d6da');</script>
+		</div>
+		<!-- <div id="supermario">
+			<script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
+			<script>if (WIDGETBOX) WIDGETBOX.renderWidget('e085029d-4374-4445-acf3-5b1ae7f25794');</script>
+		</div> -->
 	</div>
 	
 	<!-- Ramune Modals -->
