@@ -210,7 +210,7 @@
 			width: 70%;
 			height: 100%;
 			background-color: black;
-			opacity: .85;
+			opacity: .95;
 		}
 		
 		#close_call {
@@ -276,42 +276,8 @@
 			
 			users = {
 				0: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
-				},
-				1: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/2.png'
-				},
-				2: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/3.png'
-				},
-				3: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/4.png'
-				},
-				4: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/5.png'
-				},
-				5: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/6.png'
-				},
-				6: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
-				},
-				7: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/2.png'
-				},
-				8: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/3.png'
-				},
-				9: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/4.png'
-				},
-				10: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/5.png'
-				},
-				11: {
-					imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/6.png'
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/unknownbuddy.png'
 				}
-				
 			};
 			
 			calit2pics = {
@@ -349,19 +315,22 @@
 					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/mockup3.png'
 				}
 			}
-			
-			rvideo = H2O.Image({ ID: 'vid', src: 'http://marco.calit2.uci.edu/assets/i3/images/video.png', padding: 20 });
+
 			next = H2O.Button({ ID: 'next', type: 'next', click: 'buddylist.nextPage(1)'});
 			back = H2O.Button({ ID: 'back', type: 'back', click: 'buddylist.prevPage(1)'});
-			close = H2O.Image({ ID: 'ram_close', src: 'http://marco.calit2.uci.edu/assets/i3/images/rclose.png', padding: 0 });
-			settings = H2O.Image({ ID: 'ram_settings', src: 'http://marco.calit2.uci.edu/assets/i3/images/rsettings.png', padding: 0 });			
 			
-			$('#close_call').append(close);
-			$('#settings').append(settings);
+			rclose = H2O.Image({ ID: 'ram_close', src: 'http://marco.calit2.uci.edu/assets/i3/images/rclose.png', padding: 0 });
+			$('#close_call').append(rclose);
 			
+			rsettings = H2O.Image({ ID: 'ram_settings', src: 'http://marco.calit2.uci.edu/assets/i3/images/rsettings.png', padding: 0 });
+			$('#settings').append(rsettings);
+			
+			rvideo = H2O.Image({ ID: 'vid', src: 'http://marco.calit2.uci.edu/assets/i3/images/video.png', padding: 20 });
 			$('#ramune_video').append(rvideo);
+			
 			calit2slideshow = H2O.Carousel({ ID: 'calit2slides', data: calit2pics, columnAmt: 1, rowAmt: 1, autoScroll: true , scrollDelay: 5000, animSpeed: 400 });
 			$('#homescreen').append(calit2slideshow);
+			
 			slideshow = H2O.Carousel({ ID: 'mockup', data: mockup, columnAmt: 1, rowAmt: 1, autoScroll: true, scrollDelay: 5000, animSpeed: 400 });
 			$('#screen-left').append(slideshow);
 
@@ -370,7 +339,7 @@
 			/* Back Button */
 			$('#bbutton').append(back);
 			/* BuddyList */
-			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 4, rowAmt: 2, autoScroll: false });
+			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 3, rowAmt: 1, autoScroll: false });
 			$('#blcarousel').append(buddylist);
 			/* Next Button */
 			$('#nbutton').append(next);
@@ -418,7 +387,7 @@
 		
 		appendtest = {
 			0: {
-				imgsrc: 'https://armin.calit2.uci.edu/assets/luoa/icons/coolfuzz/1.png'
+				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/unknownbuddy.png'
 			}
 		};
 		
