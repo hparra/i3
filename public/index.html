@@ -296,6 +296,9 @@
 			users = {
 				0: {
 					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/unknownbuddy.png'
+				},
+				1: {
+					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/unknownbuddy.png'
 				}
 			};
 			
@@ -350,17 +353,6 @@
 			rvideo = H2O.Image({ ID: 'vid', src: 'http://marco.calit2.uci.edu/assets/i3/images/video.png', padding: 20 });
 			$('#ramune_video').append(rvideo);
 			
-			/* BuddyList */
-			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 3, rowAmt: 1, autoScroll: false });
-			$('#blcarousel').append(buddylist);
-			/* Back Button */
-			back = H2O.Button({ ID: 'back', type: 'back', click: 'buddylist.prevPage(1)'});
-			$('#bbutton').append(back);
-			/* Next Button */
-			next = H2O.Button({ ID: 'next', type: 'next', click: 'buddylist.nextPage(1)'});
-			$('#nbutton').append(next);
-			$('#buddylist').hide();
-			
 			/* Screensaver */
 			slideshow = H2O.Carousel({ ID: 'mockup', data: mockup, columnAmt: 1, rowAmt: 1, animSpeed: 400, autoScroll: false });
 			$('#screen-left').append(slideshow);
@@ -375,6 +367,17 @@
 			slideshow.addToCarousel(document.getElementById('stockchart'));
 			slideshow.addToCarousel(document.getElementById('rssreader'));
 			//slideshow.addToCarousel(document.getElementById('supermario'));
+			
+			/* BuddyList */
+			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 3, rowAmt: 1, autoScroll: false });
+			$('#blcarousel').append(buddylist);
+			/* Back Button */
+			back = H2O.Button({ ID: 'back', type: 'back', click: 'buddylist.prevPage(1)'});
+			$('#bbutton').append(back);
+			/* Next Button */
+			next = H2O.Button({ ID: 'next', type: 'next', click: 'buddylist.nextPage(1)'});
+			$('#nbutton').append(next);
+			$('#buddylist').hide();
 			
 			/* Home Button */
 			shome = H2O.Image({ ID: 'shome', src: 'http://marco.calit2.uci.edu/assets/i3/images/shome.png', padding: 0 });

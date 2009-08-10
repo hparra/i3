@@ -17,10 +17,12 @@ function killScreenSaver() {
     $('#screen').fadeOut();
 }
 
-// $(document).mousemove(function() {
-//     killScreenSaver();
-// });
-// 
-// $(document).click(function() {
-// 	killScreenSaver();
-// });
+$(document).mousemove(function() {
+    clearTimeout(screensaver);
+    restartTimer();
+});
+
+$(document).click(function() {
+	clearTimeout(screensaver);
+    restartTimer();
+});
