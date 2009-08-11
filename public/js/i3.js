@@ -5,9 +5,10 @@ var i3 = {
 		states: {},
 		changeState: function(state) {
 			i3.hideState(this.currentState);
-			this.states[state].build();
+			//this.states[state].build();
 			this.previousState = this.currentState;
 			this.currentState = state;
+			//this.states[state].resize();
 			i3.showState(state);
 			this.states[state].resize();
 		}

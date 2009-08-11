@@ -37,7 +37,7 @@ i3.StateManager.states['content'] = {
 		/* Slideshow */
 		calit2slideshow = H2O.Carousel({ ID: 'calit2slides', data: calit2pics, columnAmt: 1, rowAmt: 1, autoScroll: true , scrollDelay: 5000, animSpeed: 400 });
 		$('#homescreen').append(calit2slideshow);
-
+		
 		/* Ramune */
 		/* Close Button */
 		rclose = H2O.Image({ ID: 'ram_close', src: 'http://marco.calit2.uci.edu/assets/i3/images/rclose.png', padding: 0 });
@@ -100,6 +100,7 @@ i3.StateManager.states['content'] = {
 		});
 	},
 	resize: function() {
+		resize(getWidth(), getHeight());
 		calit2slideshow.resize();
 		buddylist.resize();
 		back.resize();
