@@ -2,7 +2,7 @@
 <head>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<!-- iPhone OS --><meta name="viewport" content="user-scalable=no, width=device-width" />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
 	<!-- iPhone OS --><meta name="apple-mobile-web-app-capable" content="yes" />
 	<!-- iPhone OS --><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<title>Calit2 i3</title>
@@ -111,6 +111,13 @@
 			width: 90%;
 			height: 85%;
 		}
+
+		.carouselItem {
+			position: static;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
 		
 		#sbbutton {
 			display: block;
@@ -143,7 +150,7 @@
 		
 		/* Login */
 		
-		#login_div {
+		#LOGIN {
 			position: absolute;
 			top: 0px;
 			left: 0px;
@@ -248,14 +255,15 @@
 	<script src="http://marco.calit2.uci.edu/H2O/src/js/H2O.Button.js" type="text/javascript" charset="utf-8"></script>
 	<script src="http://marco.calit2.uci.edu/H2O/src/js/H2O.Carousel.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/screensaver.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="js/i3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/i3.login.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/i3.main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/i3.screensavertest.js" type="text/javascript" charset="utf-8"></script>
+	
 	<script type="text/javascript" charset="utf-8">		
-		// Ramune States
-		// WAITING
-		// CALLING
-		// BUSY
 		var ramuneState = "WAITING";
-		var TIMER_DELAY = 5000;
-		var rssNum = 10;
+		var TIMER_DELAY = 10000;
 		
 		function resize(w, h) {
 			
@@ -269,9 +277,7 @@
 				marginTop: 0,
 				backgroundColor: 'white',
 				opacity: .85
-			});
-			
-			rssNum = Math.floor((h - 450) / 18);
+			});	
 		}
 		
 		function getHeight() {
@@ -283,148 +289,21 @@
 		}
 		
 		function login() {
-			$('#login_div').hide('slow');
+			//$('#LOGIN').hide('slow');
 			timer = TIMER_DELAY; // in milliseconds
 			killScreenSaver();
+			i3.StateManager.changeState('content');
 		}
 		
 		$(document).ready(function(){
+			$('#screen').hide();
+			$('#content').hide();
+			i3.StateManager.changeState('LOGIN');
 			
 			resize(getWidth(), getHeight());
 			
 			$(window).resize(function() {
 				resize(getWidth(), getHeight());
-			});
-			
-			users = {
-				0: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/unknownbuddy.png'
-				},
-				1: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/unknownbuddy.png'
-				}
-			};
-			
-			calit2pics = {
-				0: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0001.jpg'
-				},
-				1: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0002.jpg'
-				},
-				2: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0003.jpg'
-				},
-				3: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0004.jpg'
-				},
-				4: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0005.jpg'
-				},
-				5: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0006.jpg'
-				},
-				6: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0008.jpg'
-				},
-			};
-			
-			mockup = {
-				0: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/mockup1.png'
-				},
-				1: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/mockup2.png'
-				},
-				2: {
-					imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/mockup3.png'
-				}
-			}
-			
-			/* Slideshow */
-			calit2slideshow = H2O.Carousel({ ID: 'calit2slides', data: calit2pics, columnAmt: 1, rowAmt: 1, autoScroll: true , scrollDelay: 5000, animSpeed: 400 });
-			$('#homescreen').append(calit2slideshow);
-			
-			/* Ramune */
-			/* Close Button */
-			rclose = H2O.Image({ ID: 'ram_close', src: 'http://marco.calit2.uci.edu/assets/i3/images/rclose.png', padding: 0 });
-			$('#close_call').append(rclose);
-			/* Settings Button */
-			rsettings = H2O.Image({ ID: 'ram_settings', src: 'http://marco.calit2.uci.edu/assets/i3/images/rsettings.png', padding: 0 });
-			$('#settings').append(rsettings);
-			/* Video Panel */
-			rvideo = H2O.Image({ ID: 'vid', src: 'http://marco.calit2.uci.edu/assets/i3/images/video.png', padding: 20 });
-			$('#ramune_video').append(rvideo);
-			
-			/* Screensaver */
-			slideshow = H2O.Carousel({ ID: 'mockup', columnAmt: 1, rowAmt: 1, animSpeed: 400, autoScroll: false });
-			$('#screen-left').append(slideshow);
-			/* Back Button */
-			sback = H2O.Button({ ID: 'sback', type: 'back', click: 'slideshow.prevPage(1)'});
-			$('#sbbutton').append(sback);
-			/* Next Button */
-			snext = H2O.Button({ ID: 'snext', type: 'next', click: 'slideshow.nextPage(1)'});
-			$('#snbutton').append(snext);
-			
-			/* Widgets */
-			slideshow.addToCarousel(document.getElementById('stockchart'));
-			slideshow.addToCarousel(document.getElementById('rssreader'));
-			
-			/* BuddyList */
-			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 3, rowAmt: 1, autoScroll: false });
-			$('#blcarousel').append(buddylist);
-			/* Back Button */
-			back = H2O.Button({ ID: 'back', type: 'back', click: 'buddylist.prevPage(1)'});
-			$('#bbutton').append(back);
-			/* Next Button */
-			next = H2O.Button({ ID: 'next', type: 'next', click: 'buddylist.nextPage(1)'});
-			$('#nbutton').append(next);
-			$('#buddylist').hide();
-			
-			/* Home Button */
-			shome = H2O.Image({ ID: 'shome', src: 'http://marco.calit2.uci.edu/assets/i3/images/shome.png', padding: 0 });
-			$('#screen-bottom').append(shome);
-			
-			$('#home').click(function() {
-				$('#videoscreen').animate({
-					opacity: 0,
-					top: 3000
-				}, 500);
-				$('#homescreen').show('fast');
-				$('#homescreen').animate({
-					opacity: .85,
-					top: 20
-				}, 500);
-				
-			});
-			
-			$('#video').click(function() {
-				$('#homescreen').animate({
-					opacity: 0,
-					top: 3000
-				}, 500);
-				$('#videoscreen').show('fast');
-				$('#videoscreen').animate({
-					opacity: .85,
-					top: 20
-				}, 500);
-				
-			});
-		
-			$('#ram_close').click(function(){
-				$('#homescreen').animate({
-					opacity: 0,
-					top: 3000
-				}, 500);
-				$('#ramune').hide();
-				$('#buddylist').fadeIn();
-				buddylist.resize();
-				back.resize();
-				next.resize();
-			});
-			
-			$('#shome').click(function(){
-				killScreenSaver();
 			});
 		});
 		
@@ -435,41 +314,12 @@
 				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/unknownbuddy.png'
 			}
 		};
-		
-		// Screen Saver
-	    $('#screen').hide();
-		
-		function sCallBack(){
-			slideshow.resize();
-			shome.resize();
-			sback.resize();
-			snext.resize();
-		}
 	</script>
 </head>
 
 <body>
 	<!-- Login Screen -->
-	<div id="login_div">
-		<div id="login_box">
-			<img id="TeliosLogo" name="TeliosLogo" src="http://telios.calit2.uci.edu/images/teliosbanner.png" />
-			<form id="items" action="javascript:login()">
-				<fieldset>
-					<dl>
-						<dd>
-							<input id="login" type="text" value="Name" name="login" style="font-size: 30px; height: 40px;" />
-						</dd>
-						<dd>
-							<input id="password" type="password" value="Passphrase" name="password" style="font-size: 30px; height: 40px;" />
-						</dd>
-						<dd>
-							<input type="submit" value="Login" name="button" style="font-size: 30px; height: 40px;" />
-						</dd>
-					</dl>
-				</fieldset>
-			</form>
-		</div>
-	</div>
+	<div id="LOGIN"></div>
 	
 	<!-- Main Screen -->
 	<div id="content" class="backdrop">
@@ -502,7 +352,7 @@
 		<div id="snbutton"></div>
 		<div id="screen-bottom"></div>
 		<!-- ScreenSaver Widgets -->
-		<div id="stockchart">
+		<div id="stockchart" class="carouselItem">
 			<script src="http://charts.wikinvest.com/wikinvest/wikichart/javascript/scripts.php" type="text/javascript"></script>
 			<div id="wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B">
 				<div style="width: 100%; text-align: center; vertical-align: center; margin-top: 100px;">
@@ -519,9 +369,12 @@
 				<a href="http://www.wikinvest.com/chart/GOOG" style="text-decoration:underline; color:#0000ee;">View the full NASDAQ:GOOG chart</a> at <a href="http://www.wikinvest.com/">Wikinvest</a>
 			</div>
 		</div>
-		<div id="rssreader">
+		<div id="rssreader" class="carouselItem">
 			<script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
 			<script>if (WIDGETBOX) WIDGETBOX.renderWidget('f049a8cb-be45-48f5-b030-9c8689d7d6da');</script>
+		</div>
+		<div id="calit2map" class="carouselItem">
+			<embed src='http://www.calit2.uci.edu/VirtualTour_1.swf' wmode="opaque" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100%"></embed>
 		</div>
 	</div>
 	
