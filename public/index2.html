@@ -308,6 +308,8 @@
 			
 			$(window).resize(function() {
 				resize(getWidth(), getHeight());
+				i3.StateManager.states['content'].resize();
+				i3.StateManager.states['screen'].resize();
 			});
 		});
 		

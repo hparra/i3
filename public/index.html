@@ -134,9 +134,10 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			text-align: center;
 		}
 		
-		#stocks {
+		#rssreader {
 			width: 100%;
 			height: 100%;
 			text-align: center;
@@ -369,6 +370,7 @@
 			/* Widgets */
 			slideshow.addToCarousel(document.getElementById('stockchart'));
 			slideshow.addToCarousel(document.getElementById('rssreader'));
+			slideshow.addToCarousel(document.getElementById('calit2map'));
 			
 			/* BuddyList */
 			buddylist = H2O.Carousel({ ID: 'buddylist_carousel', data: users, columnAmt: 3, rowAmt: 1, autoScroll: false });
@@ -522,6 +524,9 @@
 		<div id="rssreader">
 			<script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
 			<script>if (WIDGETBOX) WIDGETBOX.renderWidget('f049a8cb-be45-48f5-b030-9c8689d7d6da');</script>
+		</div>
+		<div id="calit2map" class="carouselItem">
+			<embed src='http://www.calit2.uci.edu/VirtualTour_1.swf' wmode="opaque" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100%"></embed>
 		</div>
 	</div>
 	
