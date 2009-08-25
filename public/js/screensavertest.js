@@ -16,14 +16,15 @@ function killScreenSaver() {
 	clearTimeout(screensaver);
     restartTimer();
     $('#screen').fadeOut();
+	if(i3.StateManager.currentState === 'screen') {
+		i3.StateManager.changeState('content');
+	}
 }
 
 $(document).mousemove(function() {
-    clearTimeout(screensaver);
-    restartTimer();
+	killScreenSaver();
 });
 
 $(document).click(function() {
-	clearTimeout(screensaver);
-    restartTimer();
+	killScreenSaver();
 });

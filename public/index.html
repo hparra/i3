@@ -38,7 +38,7 @@
 		}
 		
 		.demoscreen {
-			top: 3000px;
+			top: 2000px;
 			background-color: white;
 			opacity: .85;
 			-webkit-border-radius: 10px;
@@ -63,7 +63,7 @@
 			height: 128px;
 		}
 		
-		#home:hover {
+		#stock:hover {
 			background-color: white;
 			-webkit-border-radius: 10px;
 			-moz-border-radius: 10px;
@@ -106,46 +106,17 @@
 	<style type="text/css" media="screen">
 		/* Screensaver Stylesheets */
 		#screen-left {
-			display: block;
-			float: left;
-			width: 90%;
-			height: 85%;
-		}
-
-		.carouselItem {
-			position: static;
 			width: 100%;
 			height: 100%;
-			border: none;
 		}
 		
-		#sbbutton {
-			display: block;
-			float: left;
-			width: 5%;
-			height: 85%;
-		}
-		
-		#snbutton {
-			display: block;
-			float: left;
-			width: 5%;
-			height: 85%;
-		}
-		
-		#screen-bottom {
-			position: absolute;
-			top: 85%;
-			width: 100%;
-			height: 15%;
-			margin: 0;
-			padding: 0;
-		}
-		
-		#stocks {
-			width: 100%;
-			height: 100%;
-			text-align: center;
+		#stockchart {
+			position: relative;
+			width: 80%;
+			height: 95%;
+			padding-left: 10%;
+			padding-right: 10%;
+			top: 5%;
 		}
 		
 		/* Login */
@@ -330,7 +301,30 @@
 	<!-- Main Screen -->
 	<div id="content" class="backdrop">
 		<img id="topbanner" src="http://marco.calit2.uci.edu/assets/i3/images/screensaverbg.png" />
-		<div id="homescreen" class="demoscreen"></div>
+		<!--Widgets-->
+		<div id="stockapp" class="demoscreen">
+			<div id="stockchart">
+				<script src="http://charts.wikinvest.com/wikinvest/wikichart/javascript/scripts.php" type="text/javascript"></script>
+				<div id="wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B">
+					<div style="width: 100%; text-align: center; vertical-align: center; margin-top: 100px;">
+						<a href="http://get.adobe.com/flashplayer/">
+							<img src="http://cdn.wikinvest.com/wikinvest/images/adobe_flash_logo.gif" alt="Flash" style="border-width: 0px;"/>
+							<br/>Flash Player 9 or higher is required to view the chart<br/><strong>Click here to download Flash Player now</strong>
+						</a>
+					</div>
+				</div>
+				<script type="text/javascript">
+					if (typeof(embedWikichart) != "undefined") {embedWikichart("http://charts.wikinvest.com/WikiChartMini.swf","wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B","100%","90%",{"showAnnotations":"true","endDate":"05-08-2009","ticker":"GOOG","liveQuote":"true","startDate":"05-02-2009"});}
+				</script>
+				<div style="font-size:9px;text-align:right;width:100%;font-family:Verdana">
+					<a href="http://www.wikinvest.com/chart/GOOG" style="text-decoration:underline; color:#0000ee;">View the full NASDAQ:GOOG chart</a> at <a href="http://www.wikinvest.com/">Wikinvest</a>
+				</div>
+			</div>
+		</div>
+		<!-- <div id="calit2map">
+			<embed src='http://www.calit2.uci.edu/VirtualTour_1.swf' wmode="opaque" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100%"></embed>
+		</div> -->
+		
 		<div id="videoscreen" class="demoscreen">
 			<div id="ramune">
 				<div id="settings"></div>
@@ -347,41 +341,13 @@
 		<!-- Navigation Buttons -->
 		<div id="buttons">
 			<div class="button" id="video"><img src="http://marco.calit2.uci.edu/assets/i3/images/video.png" /></div>
-			<div class="button" id="home"><img src="http://marco.calit2.uci.edu/assets/i3/images/home.png" /></div>
+			<div class="button" id="stock"><img src="http://marco.calit2.uci.edu/assets/i3/images/home.png" /></div>
 		</div>
 	</div>
 	
 	<!-- Screensaver Screen -->
 	<div id="screen" class="backdrop">
-		<div id="sbbutton"></div>
 		<div id="screen-left"></div>
-		<div id="snbutton"></div>
-		<div id="screen-bottom"></div>
-		<!-- ScreenSaver Widgets -->
-		<div id="stockchart" class="carouselItem">
-			<script src="http://charts.wikinvest.com/wikinvest/wikichart/javascript/scripts.php" type="text/javascript"></script>
-			<div id="wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B">
-				<div style="width: 100%; text-align: center; vertical-align: center; margin-top: 100px;">
-					<a href="http://get.adobe.com/flashplayer/">
-						<img src="http://cdn.wikinvest.com/wikinvest/images/adobe_flash_logo.gif" alt="Flash" style="border-width: 0px;"/>
-						<br/>Flash Player 9 or higher is required to view the chart<br/><strong>Click here to download Flash Player now</strong>
-					</a>
-				</div>
-			</div>
-			<script type="text/javascript">
-				if (typeof(embedWikichart) != "undefined") {embedWikichart("http://charts.wikinvest.com/WikiChartMini.swf","wikichartContainer_22BDD915-AF7D-9B08-554D-EE0D0C98C92B","100%","400",{"showAnnotations":"true","endDate":"05-08-2009","ticker":"GOOG","liveQuote":"true","startDate":"05-02-2009"});}
-			</script>
-			<div style="font-size:9px;text-align:right;width:100%;font-family:Verdana">
-				<a href="http://www.wikinvest.com/chart/GOOG" style="text-decoration:underline; color:#0000ee;">View the full NASDAQ:GOOG chart</a> at <a href="http://www.wikinvest.com/">Wikinvest</a>
-			</div>
-		</div>
-		<div id="rssreader" class="carouselItem">
-			<script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
-			<script>if (WIDGETBOX) WIDGETBOX.renderWidget('f049a8cb-be45-48f5-b030-9c8689d7d6da');</script>
-		</div>
-		<div id="calit2map" class="carouselItem">
-			<embed src='http://www.calit2.uci.edu/VirtualTour_1.swf' wmode="opaque" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100%"></embed>
-		</div>
 	</div>
 	
 	<!-- Ramune Modals -->
