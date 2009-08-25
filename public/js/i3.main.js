@@ -38,6 +38,10 @@ i3.StateManager.states['content'] = {
 				opacity: 0,
 				top: 2000
 			}, 500);
+			$('#rssapp').animate({
+				opacity: 0,
+				top: 2000
+			}, 500);
 			$('#stockapp').show('fast');
 			$('#stockapp').animate({
 				opacity: .85,
@@ -45,9 +49,29 @@ i3.StateManager.states['content'] = {
 			}, 500);
 
 		});
+		
+		$('#rss').click(function() {
+			$('#videoscreen').animate({
+				opacity: 0,
+				top: 2000
+			}, 500);
+			$('#stockapp').animate({
+				opacity: 0,
+				top: 2000
+			}, 500);
+			$('#rssapp').show('fast');
+			$('#rssapp').animate({
+				opacity: .85,
+				top: 20
+			}, 500);
+		});
 
 		$('#video').click(function() {
 			$('#stockapp').animate({
+				opacity: 0,
+				top: 2000
+			}, 500);
+			$('#rssapp').animate({
 				opacity: 0,
 				top: 2000
 			}, 500);
