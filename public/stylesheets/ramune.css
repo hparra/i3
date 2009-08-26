@@ -1,0 +1,45 @@
+/* Ramune CSS */
+#accept {
+	background-color: green;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#reject {
+	background-color: red;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#ramune {
+	position: relative;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
+}
+
+#settings {
+	float: left;
+	display: block;
+	width: 15%;
+	height: 100%;
+	text-align: right;
+}
+
+#ramune_video {
+	float: left;
+	display: block;
+	width: 70%;
+	height: 100%;
+	background-color: black;
+	opacity: .95;
+}
+
+#close_call {
+	float: left;
+	display: block;
+	width: 15%;
+	height: 100%;
+	text-align: left;
+}

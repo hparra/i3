@@ -1,0 +1,40 @@
+#buttons{
+	position: absolute;
+	width: 414px;
+	height: 138px;
+	left: 50%;
+	top: 100%;
+	margin-left: -207px;
+	margin-top: -138px;
+}
+
+.button {
+	float: right;
+	display: block;
+	margin: 5px 5px 5px 5px;
+	width: 128px;
+	height: 128px;
+}
+
+#rss:hover {
+	background-color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+#stock:hover {
+	background-color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+#video:hover {
+	background-color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+.button IMG {
+	height: 100%;
+	width: 100%;
+}
