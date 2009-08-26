@@ -7,24 +7,22 @@ function restartTimer() {
 }
 
 function initScreenSaver() {
-	clearTimeout(screensaver);
-	i3.StateManager.changeState('screen');
     $('#screen').fadeIn('fast');
+	sCallBack();
 }
 
 function killScreenSaver() {
 	clearTimeout(screensaver);
     restartTimer();
     $('#screen').fadeOut();
-	if(i3.StateManager.currentState === 'screen') {
-		i3.StateManager.changeState('content');
-	}
 }
 
 $(document).mousemove(function() {
-	killScreenSaver();
+    clearTimeout(screensaver);
+    restartTimer();
 });
 
 $(document).click(function() {
-	killScreenSaver();
+	clearTimeout(screensaver);
+    restartTimer();
 });

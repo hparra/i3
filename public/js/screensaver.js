@@ -1,3 +1,7 @@
+// Mouse Coordinates
+var mousex = document.screenX;
+var mousey = document.screenY;
+
 //Init Timer
 var timer = 10000000;
 restartTimer();
@@ -7,22 +11,31 @@ function restartTimer() {
 }
 
 function initScreenSaver() {
+	clearTimeout(screensaver);
+	i3.StateManager.changeState('screen');
     $('#screen').fadeIn('fast');
-	sCallBack();
 }
 
 function killScreenSaver() {
 	clearTimeout(screensaver);
     restartTimer();
     $('#screen').fadeOut();
+	if(i3.StateManager.currentState === 'screen') {
+		i3.StateManager.changeState('content');
+	}
 }
 
-$(document).mousemove(function() {
-    clearTimeout(screensaver);
-    restartTimer();
+$(document).mousemove(function(e) {
+	if (e.pageX !== mousex) {
+		mousex = e.pageX;
+		killScreenSaver();
+	}
+	if (e.pageY !== mousey) {
+		mousey = e.pageY;
+		killScreenSaver();
+	}
 });
 
 $(document).click(function() {
-	clearTimeout(screensaver);
-    restartTimer();
+	killScreenSaver();
 });
