@@ -1,7 +1,6 @@
 i3.StateManager.states['LOGIN'] = {
 	HTML: '\
 		<div id="login_box">\
-			<img id="TeliosLogo" name="TeliosLogo" src="http://telios.calit2.uci.edu/images/teliosbanner.png" />\
 			<form id="items" action="javascript:login()">\
 				<fieldset>\
 					<dl>\

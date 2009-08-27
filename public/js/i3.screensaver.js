@@ -21,11 +21,29 @@ i3.StateManager.states['screen'] = {
 			},
 			6: {
 				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/DSC_0008.jpg'
+			}
+		};
+		
+		interfacemag = {
+			0: {
+				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/interfacespring2009-1.png'
 			},
+			1: {
+				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/interfacespring2009-3.png'
+			},
+			2: {
+				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/interfacespring2009-4.png'
+			},
+			3: {
+				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/interfacespring2009-6.png'
+			},
+			4: {
+				imgsrc: 'http://marco.calit2.uci.edu/assets/i3/images/interfacespring2009-7.png'
+			}
 		};
 
 		/* Slideshow */
-		calit2slideshow = H2O.Carousel({ ID: 'calit2slides', data: calit2pics, columnAmt: 1, rowAmt: 1, autoScroll: true , scrollDelay: 5000, animSpeed: 400 });
+		calit2slideshow = H2O.Carousel({ ID: 'interfacemag', data: interfacemag, columnAmt: 1, rowAmt: 1, autoScroll: true , scrollDelay: 5000, animSpeed: 400 });
 		$('#screen-left').append(calit2slideshow);
 
 	},
