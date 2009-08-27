@@ -1,3 +1,5 @@
+/* Main */
+
 .backdrop {
 	position: absolute;
 	top: 0px;
@@ -36,7 +38,7 @@
 	-moz-border-radius: 10px;
 }
 
-/* BuddyListCarousel */
+/* BuddyList Carousel */
 
 #bbutton {
 	display: block;
@@ -60,6 +62,7 @@
 }
 
 /* Apps */
+
 #stockchart {
 	position: relative;
 	width: 80%;
